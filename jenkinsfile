@@ -2,10 +2,15 @@ pipeline {
     agent {
         label 'Agent-1'
     }
+    options{
+        timeout(time: 10, unit: 'MINUTES')  #build time limit
+        disableConcurrentBuilds()  #once one build completed then another one
+    }   
     stages {
         stage('Build') {
             steps {
                 sh 'echo This is Build'
+            
             
             }
         }
